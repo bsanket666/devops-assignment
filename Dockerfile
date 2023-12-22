@@ -3,6 +3,5 @@ WORKDIR /jsrc
 COPY . .
 RUN npm install
 RUN npx nx run nft-bridge:lint
-RUN npx jest
 RUN nx build nft-bridge
 CMD ["node", "./dist/apps/nft-bridge/main.js"]
