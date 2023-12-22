@@ -16,10 +16,15 @@ pipeline {
                 sh "docker push bsanket666/practiceproject:v${env.BUILD_NUMBER}"
             }
         }
-        stage ('update helm release') {
+        stage ('update deployment') {
            steps {
-               sh "kubectl apply -f deployment.yaml --image=bsanket666/practiceproject:v${env.BUILD_NUMBER}"
+               sh "kubectl apply -f deployment.yaml"
            }            
-        }  
+        } 
+              stage ('update image') {
+           steps {
+               sh "kubectl set image deploy/practice-nj practie-nj=bsanket666/practiceproject:v${env.BUILD_NUMBER}"
+           }            
+        }
     }
 }
