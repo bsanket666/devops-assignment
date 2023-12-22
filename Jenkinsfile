@@ -23,7 +23,7 @@ pipeline {
         } 
               stage ('update image') {
            steps {
-               sh "kubectl set image deploy/practice-nj practie-nj=bsanket666/practiceproject:v${env.BUILD_NUMBER}"
+               sh "kubectl set image deploy/practice-nj practice-nj=bsanket666/practiceproject:v${env.BUILD_NUMBER}"
            }            
         }
     }
