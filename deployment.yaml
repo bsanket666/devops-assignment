@@ -28,4 +28,5 @@ spec:
         - name: practice-nj
           ports:
             - containerPort: 3001
+          image: bsaket666/practiceproject:latest
           imagePullPolicy: Always
