@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: practice-nj
+spec:
+  selector:
+    app: practice-nj
+  ports:
+    - port: 80
+      targetPort: 3001
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practice-nj
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: practice-nj
+  template:
+    metadata:
+      labels:
+        app: practice-nj
+    spec:
+      containers:
+        - name: practice-nj
+          ports:
+            - containerPort: 3001
+          imagePullPolicy: Always
