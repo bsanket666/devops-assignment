@@ -18,7 +18,7 @@ pipeline {
         }
         stage ('update helm release') {
            steps {
-               sh "kubectl apply -f deployment.yaml"
+               sh "kubectl apply -f deployment.yaml --image=bsanket666/practiceproject:v${env.BUILD_NUMBER}"
            }            
         }  
     }
