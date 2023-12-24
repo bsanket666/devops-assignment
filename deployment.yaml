@@ -6,8 +6,9 @@ spec:
   selector:
     app: practice-nj
   ports:
-    - port: 80
-      targetPort: 3001
+    - port: 3001
+      nodePort: 31592
+      targetPort: 3001    
   type: NodePort
 ---
 apiVersion: apps/v1
